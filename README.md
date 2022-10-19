@@ -7,7 +7,7 @@ code/docs for running fmriprep on myconnectome
 1. process all anatomical directories using freesurfer 7.3.2, using -T2pial option if T2w is present (for use in subsequent longitudinal analysis in Freesurfer)
    - status: ongoing
 2. create average field map for use in fMRIprep (following approach similar to that used in Laumann et al.)
-   - status: TBD
+   - status: TBD, need to decide whether to use phasediff or pepolar field maps
 3. modify BIDS dataset to point to average field map for all BOLD datasets
    - status: need to figure out the necessary changes to BIDS metadata files
 4. run fmriprep on a per-session basis
@@ -34,8 +34,10 @@ in atlas space was computed.
 - Two-stage procedure for registering images to common template
     - Stage 1: register all magnitude images to a common target (selected for good quality), and generate a mean of all registered images
     - Stage 2: register all magnitude images to Stage 1 mean image
-- Unwrap phase images using fsl PRELUDE
+- If using phasediff maps: Unwrap phase images using fsl PRELUDE
   - Check metadata to ensure that all field maps have same echo times
-- Apply Stage 2 transforms to phase images
-- Create mean registered phase image
-- 
+  - Apply Stage 2 transforms to phase images
+  - Create mean registered phase image
+- If using pepolar maps:
+  - run topup (on individual or averaged acquisition?)
+  - create mean fieldmap (or fieldmap of means?)
