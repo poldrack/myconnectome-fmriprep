@@ -10,6 +10,7 @@ code/docs for running fmriprep on myconnectome
    - status: TBD, need to decide whether to use phasediff or pepolar field maps
 3. modify BIDS dataset to point to average field map for all BOLD datasets
    - status: need to figure out the necessary changes to BIDS metadata files
+   - from @effigies: You can either use IntendedFor and list all of the BOLD images on the fieldmap, or you can use "B0FieldIdentifier": "mean" on the fieldmap and then set "B0FieldSource": "mean" on all of the BOLD images.
 4. run fmriprep on a per-session basis
 
 ## Todos
@@ -41,3 +42,4 @@ in atlas space was computed.
 - If using pepolar maps:
   - run topup (on individual or averaged acquisition?)
   - create mean fieldmap (or fieldmap of means?)
+  - copy json files from ses-014
