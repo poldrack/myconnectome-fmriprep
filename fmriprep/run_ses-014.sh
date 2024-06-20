@@ -1,0 +1,1 @@
+docker run -ti --rm  -v /data/scratch:/scratch -v /data/ds000031:/data:ro  -v /data/ds000031/derivatives:/out  -v $FREESURFER_HOME/license.txt:/opt/freesurfer/license.txt  nipreps/fmriprep:22.0.2 -w /scratch --anat-derivatives /data/derivatives/fmriprep --bids-filter-file /data/derivatives/filters/ses-014_filter.json  /data /out/fmriprep  participant 
